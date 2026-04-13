@@ -1,8 +1,266 @@
 /*
 Theme Name:     Site Theme
-Description:    
+Theme URI:      https://example.com/site-theme
+Description:    Emerald Editorial — a clean, accessible child theme for Twenty Twenty-Five. Inspired by the minimal typography-focused layouts of Medium.com, the editorial richness of National Geographic, and the clarity of Smashing Magazine. Designed for urban-living content with a nature-forward green palette.
 Author:         acapolongo
+Author URI:     https://example.com
 Template:       twentytwentyfive
-
-(optional values you can add: Theme URI, Author URI, Version, License, License URI, Tags, Text Domain)
+Version:        1.0.0
+License:        GNU General Public License v2 or later
+License URI:    http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:    site-theme
+Tags:           accessibility-ready, blog, custom-colors, custom-menu, editor-style, featured-images, full-site-editing, block-patterns, wide-blocks
 */
+
+/* ============================================================
+   EMERALD EDITORIAL — Custom CSS Overrides
+   Parent: Twenty Twenty-Five
+   All colour pairings verified to meet WCAG AA (4.5:1 normal text)
+   ============================================================ */
+
+/* --- Site Title / Branding --------------------------------- */
+.wp-block-site-title a {
+    color: var(--wp--preset--color--accent-1) !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none !important;
+}
+.wp-block-site-title a:hover,
+.wp-block-site-title a:focus {
+    color: var(--wp--preset--color--accent-3) !important;
+    text-decoration: underline !important;
+}
+
+/* --- Navigation -------------------------------------------- */
+.wp-block-navigation a {
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.wp-block-navigation a:hover,
+.wp-block-navigation a:focus {
+    background-color: var(--wp--preset--color--accent-5) !important;
+    color: var(--wp--preset--color--accent-1) !important;
+}
+
+/* --- Focus Indicators (Axe: focus-visible) ----------------- */
+*:focus-visible {
+    outline: 3px solid var(--wp--preset--color--accent-1) !important;
+    outline-offset: 3px !important;
+    border-radius: 2px;
+}
+
+/* --- Skip Link --------------------------------------------- */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    padding: 0.6em 1.2em;
+    background: var(--wp--preset--color--accent-1);
+    color: #ffffff;
+    font-weight: 700;
+    z-index: 9999;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    transition: top 0.2s;
+}
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--wp--preset--color--contrast);
+    outline-offset: 2px;
+}
+
+/* --- Post Titles ------------------------------------------- */
+.wp-block-post-title a {
+    color: var(--wp--preset--color--contrast) !important;
+    text-decoration: none !important;
+}
+.wp-block-post-title a:hover,
+.wp-block-post-title a:focus {
+    color: var(--wp--preset--color--accent-1) !important;
+    text-decoration: underline !important;
+}
+
+/* --- Featured Images --------------------------------------- */
+.wp-block-post-featured-image img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* --- Buttons ----------------------------------------------- */
+.wp-block-button .wp-block-button__link,
+.wp-element-button {
+    background-color: var(--wp--preset--color--accent-1) !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    border: 2px solid var(--wp--preset--color--accent-1) !important;
+    font-weight: 600 !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
+}
+.wp-block-button .wp-block-button__link:hover,
+.wp-block-button .wp-block-button__link:focus,
+.wp-element-button:hover,
+.wp-element-button:focus {
+    background-color: var(--wp--preset--color--accent-3) !important;
+    border-color: var(--wp--preset--color--accent-3) !important;
+    color: #ffffff !important;
+}
+
+/* --- Links ------------------------------------------------- */
+a {
+    color: var(--wp--preset--color--accent-1);
+}
+a:hover,
+a:focus {
+    color: var(--wp--preset--color--accent-3);
+}
+
+/* --- Blockquotes ------------------------------------------- */
+.wp-block-quote {
+    border-left: 4px solid var(--wp--preset--color--accent-1);
+    padding-left: 1.5em;
+    font-style: italic;
+}
+
+/* --- Separators -------------------------------------------- */
+hr,
+.wp-block-separator {
+    border-color: var(--wp--preset--color--accent-6);
+}
+
+/* --- Post Meta (date, author) ------------------------------ */
+.wp-block-post-date,
+.wp-block-post-author__name,
+time {
+    color: var(--wp--preset--color--accent-4);
+    font-size: 0.875em;
+}
+
+/* --- Footer ------------------------------------------------ */
+.wp-block-template-part[data-slug="footer"] {
+    background-color: var(--wp--preset--color--accent-5) !important;
+    border-top: 3px solid var(--wp--preset--color--accent-2);
+}
+
+/* --- Media Embeds: responsive 16:9 wrapper ----------------- */
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+.wp-block-embed.wp-embed-aspect-16-9 .wp-block-embed__wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* --- Video / Map containers -------------------------------- */
+.video-embed-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--wp--preset--color--accent-5);
+    margin-bottom: 1.5em;
+}
+.video-embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+}
+
+.map-container {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--wp--preset--color--accent-6);
+    margin-top: 1.5em;
+}
+.map-container iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+/* --- Accessible colour pairings for coloured backgrounds --- */
+.has-accent-1-background-color,
+.has-accent-3-background-color {
+    color: #ffffff !important;
+}
+.has-accent-5-background-color,
+.has-accent-6-background-color {
+    color: var(--wp--preset--color--contrast) !important;
+}
+
+/* --- Form elements ----------------------------------------- */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+textarea,
+select {
+    border: 2px solid var(--wp--preset--color--accent-6);
+    border-radius: 4px;
+    padding: 0.55em 0.75em;
+    font-family: inherit;
+    font-size: 1em;
+    background: #ffffff;
+    color: var(--wp--preset--color--contrast);
+    width: 100%;
+    box-sizing: border-box;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--wp--preset--color--accent-1);
+    outline: 3px solid var(--wp--preset--color--accent-2);
+    outline-offset: 1px;
+}
+
+/* --- Tables ----------------------------------------------- */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid var(--wp--preset--color--accent-6);
+    padding: 0.5em 1em;
+    text-align: left;
+}
+th {
+    background-color: var(--wp--preset--color--accent-5);
+    font-weight: 600;
+}
+tr:nth-child(even) {
+    background-color: var(--wp--preset--color--accent-5);
+}
+
+/* --- Code -------------------------------------------------- */
+code, pre {
+    background-color: var(--wp--preset--color--accent-5);
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+pre {
+    padding: 1em;
+    overflow-x: auto;
+}
+
+/* --- Responsive -------------------------------------------- */
+@media (max-width: 768px) {
+    .map-container iframe {
+        height: 300px;
+    }
+}

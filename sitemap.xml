@@ -2,12 +2,32 @@
 <urlset>
     <url>
         <loc>
+            http://localhost:8000/the-perfect-post-workout-protein-shake/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/5-high-protein-shake-recipes-for-every-goal/
+        </loc>
+    </url>
+    <url>
+        <loc>
             http://localhost:8000/
         </loc>
     </url>
     <url>
         <loc>
-            http://localhost:8000/sample-page/
+            http://localhost:8000/about/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/contact/
+        </loc>
+    </url>
+    <url>
+        <loc>
+            http://localhost:8000/category/protein-shakes/
         </loc>
     </url>
     <url>
